@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Manju 💫</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+overflow:hidden;
+height:100vh;
+background:linear-gradient(135deg,#ff4d88,#ff8dbd,#ffdce8);
+display:flex;
+justify-content:center;
+align-items:center;
+color:white;
+}
+
+#loader{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:black;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+z-index:999;
+}
+
+#loader button{
+padding:18px 40px;
+font-size:24px;
+border:none;
+border-radius:50px;
+background:#ff4d94;
+color:white;
+cursor:pointer;
+box-shadow:0 0 25px white;
+animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+50%{transform:scale(1.08);}
+}
+
+.container{
+display:none;
+text-align:center;
+max-width:760px;
+padding:30px;
+animation:fade 2s;
+}
+
+@keyframes fade{
+from{
+opacity:0;
+transform:scale(.8);
+}
+to{
+opacity:1;
+transform:scale(1);
+}
+}
+
+h1{
+font-size:56px;
+margin-bottom:10px;
+}
+
+h2{
+margin-bottom:25px;
+}
+
+p{
+font-size:20px;
+line-height:1.8;
+}
+
+img{
+width:170px;
+height:170px;
+border-radius:50%;
+border:5px solid white;
+object-fit:cover;
+margin:15px;
+box-shadow:0 0 25px rgba(255,255,255,.6);
+}
+
+.balloon{
+position:absolute;
+bottom:-100px;
+font-size:40px;
+animation:fly linear infinite;
+}
+
+@keyframes fly{
+to{
+transform:translateY(-120vh);
+}
+}
+
+.heart{
+position:absolute;
+font-size:22px;
+animation:heartFloat linear infinite;
+}
+
+@keyframes heartFloat{
+0%{
+transform:translateY(100vh);
+opacity:0;
+}
+20%{
+opacity:1;
+}
+100%{
+transform:translateY(-120vh);
+opacity:0;
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="loader">
+<button onclick="start()">🎁 Tap To Open Your Surprise</button>
+</div>
+
+<div class="container" id="main">
+ <img src="YOUR_PHOTO_URL" alt="My Photo">
+<img src="MANJU_PHOTO_URL" alt="Manju">
+
+<h1>🎂 Happy Birthday Manju 💫</h1>
+
+<h2>❤️ My Forever Love ❤️</h2>
+
+<p>
+
+My Dearest Manju,
+
+Today is your special day, and I just want you to know how much you mean to me.
+
+Even though we are miles apart, my heart has always been with you.
+
+These 6 beautiful years of our long-distance journey have made our love stronger every single day.
+
+Thank you for loving me, trusting me, supporting me, and always making me smile.
+
+I pray that this birthday brings you endless happiness, success, good health, and all the love you deserve.
+
+Always remember...
+
+Distance can never separate two hearts that truly love each other.
+
+❤️ Happy Birthday My Love ❤️
+
+Forever Yours,<br>
+<b>Raju ❤️</b>
+
+</p>
+
+<audio id="music" loop>
+<source src="YOUR_MUSIC_URL.mp3" type="audio/mpeg">
+</audio>
+  <script>
+
+function start(){
+document.getElementById("loader").style.display="none";
+document.getElementById("main").style.display="block";
+
+const music=document.getElementById("music");
+music.play().catch(()=>{});
+}
+
+function createBalloon(){
+
+let b=document.createElement("div");
+b.className="balloon";
+b.innerHTML=["🎈","🎉","🎁"][Math.floor(Math.random()*3)];
+
+b.style.left=Math.random()*100+"vw";
+b.style.animationDuration=(5+Math.random()*5)+"s";
+
+document.body.appendChild(b);
+
+setTimeout(()=>{
+b.remove();
+},10000);
+
+}
+
+setInterval(createBalloon,400);
+
+function createHeart(){
+
+let h=document.createElement("div");
+
+h.className="heart";
+
+h.innerHTML="❤️";
+
+h.style.left=Math.random()*100+"vw";
+
+h.style.animationDuration=(4+Math.random()*5)+"s";
+
+document.body.appendChild(h);
+
+setTimeout(()=>{
+h.remove();
+},9000);
+
+}
+
+setInterval(createHeart,250);
+    </script>
+
+</div>
+
+</body>
+</html>
